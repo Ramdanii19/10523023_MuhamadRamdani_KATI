@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+
+    .header {
+      background-color: #c67c4e;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .header p {
+      font-weight: bold;
+      color: white;
+    }
+
+    .navbar {
+      background-color: black;
+      padding: 0 50px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .nav-list-left {
+      display: flex;
+      gap: 20px;
+      padding: 15px 0;
+    }
+
+    .nav-list-left ul {
+      list-style-type: none;
+      align-items: center;
+      display: flex;
+    }
+
+    .nav-list-left ul li img {
+      width: 50px;
+    }
+
+    .nav-list-left ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+
+    .nav-list-right {
+      display: flex;
+      padding: 15px 0;
+    }
+
+    .nav-list-right ul {
+      list-style-type: none;
+      align-items: center;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-list-right ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .content {
+      display: flex;
+    }
+
+    .sidebar {
+      background-color: #c67c4e;
+      width: 15%;
+      padding: 20px;
+      color: white;
+    }
+
+    .sidebar h1 {
+      margin-bottom: 20px;
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 15px;
+    }
+
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .sidebar ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      display: block;
+      background: white;
+      transition: width 0.3s ease-in-out;
+      bottom: -5px;
+      left: 0;
+    }
+
+    .sidebar ul li a:hover::after {
+      width: 100%;
+    }
+
+    .main-content {
+      width: 85%;
+      margin-top: 20px;
+    }
+
+    .main-content img {
+      max-width: 100%;
+    }
+
+    .main-content h1 {
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .women,
+    .men,
+    .kids {
+      margin-top: 30px;
+    }
+
+    .women .grid-container,
+    .men .grid-container,
+    .kids .grid-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      /* Ubah dari 3 menjadi 4 */
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .grid-item {
+      text-align: center;
+    }
+
+    .grid-item p {
+      margin: 10px 0;
+      font-weight: bold;
+      text-align: center;
+    }
+
+
+
+    .grid-item .name-item {
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    .grid-item a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .grid-item a:hover p {
+      color: #c67c4e;
+    }
+
+    .grid-item a:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .grid-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .grid-item a:hover img {
+      transform: scale(1.1);
+    }
+
+    .footer {
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .footer p {
+      margin-bottom: 10px;
+    }
+
+    .footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      display: block;
+      background: white;
+      transition: width 0.3s ease-in-out;
+      bottom: -5px;
+      left: 0;
+    }
+
+    .nav-link:hover {
+      color: #c67c4e;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <p>FREE SHOPPING FROM Rp 500K IN BANDUNG</p>
+  </div>
+  <div class="navbar" style="border: 1px solid;">
+    <div class="nav-list-left">
+      <ul>
+        <li><img src="img/Puma - Logo.png" alt=""></li>
+      </ul>
+      <ul>
+        <li><a href="#woman" class="nav-link">Women</a></li>
+      </ul>
+      <ul>
+        <li><a href="#men" class="nav-link">Men</a></li>
+      </ul>
+      <ul>
+        <li><a href="#kids" class="nav-link">Kids</a></li>
+      </ul>
+    </div>
+    <div class="nav-list-right">
+      <ul>
+        <li><a href="kontakkami.html" class="nav-link">Kontak Kami</a></li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="content">
+    <div class="sidebar">
+      <h1>Menu</h1>
+      <ul>
+        <li><a href="#woman" style="color: white;">Woman</a></li>
+        <li><a href="#men" style="color: white;">Men</a></li>
+        <li><a href="#kids" style="color: white;">Kids</a></li>
+      </ul>
+    </div>
+    <div class="main-content">
+      <marquee behavior="" direction="">
+        <h1>PETUALANGAN AGUSTUS - DISKON HINGGA 40% + DISKON TAMBAHAN 25%</h1>
+      </marquee>
+      <img src="img/bg.avif" alt="Main Content Image">
+
+      <div class="women" id="woman">
+        <h2 style="text-align: center;">Women</h2>
+        <div class="grid-container">
+          <div class="grid-item">
+            <a href="woman/woman1.html">
+              <img src="img/women-1.avif" alt="Product 1">
+              <p class="name-item">Scoot Zeros Grey Frost</p>
+              <p>Rp 1.699.000</p>
+            </a>
+          </div>
+          <div class="grid-item">
+            <a href="woman/women2.html">
+              <img src="img/women-2.01-Inverse-Toxic-Basketball-Shoes" alt="Product 2">
+              <p>MB.01 Inverse Basketball Shoes</p>
+              <p>Rp 2.799.000</p>
+            </a>
+          </div>
+          <div class="grid-item">
+            <a href="woman/women3.html">
+              <img src="img/women-3.avif" alt="Product 3">
+              <p>A$AP ROCKY X PUMA Inhale Sneakers</p>
+              <p>Rp 1.799.000</p>
+            </a>
+          </div>
+          <div class="grid-item">
+            <a href="woman/women4.html">
+              <img src="img/women-4.avif" alt="Product 4">
+              <p>Spirex 'Icon of Speed' Sneakers</p>
+              <p>Rp 1.899.000</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="men" id="men">
+        <h2 style="text-align: center;">Men</h2>
+        <div class="grid-container">
+          <div class="grid-item">
+            <a href="men/men1.html">
+              <img src="img/men-1.avif" alt="Product 4">
+              <p>PUMA X 2K Scoot Zeros</p>
+              <p>Rp. 1.699.000</p>
+            </a>
+          </div>
+          <div class="grid-item">
+            <a href="men/men2.html">
+              <img src="img/men-2.avif" alt="Product 5">
+              <p>Fast-Trac NITRO 2 Men's Trail</p>
+              <p>Rp. 1.999.000</p>
+            </a>
+          </div>
+          <div class="grid-item">
+            <a href="men/men3.html">
+              <img src="img/men-3.avif" alt="Product 6">
+              <p>RS-X Suede Sneakers</p>
+              <p>Rp. 1.599.000</p>
+            </a>
+          </div>
+          <div class="grid-item">
+            <a href="men/men4.html">
+              <img src="img/men-4.avif" alt="Product 7">
+              <p>PUMA X SOPHIA CHANG</p>
+              <p>Rp 2.299.000</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="kids" id="kids">
+        <h2 style="text-align: center;">Kids</h2>
+        <div class="grid-container">
+          <div class="grid-item">
+            <a href="">
+              <img src="img/kids-1.avif" alt="Product 7">
+              <p>Genetics Basketball shoes</p>
+              <p>Rp. 1.399.000</p>
+            </a>
+          </div>
+          <div class="grid-item">
+            <a href="">
+              <img src="img/kids-2.avif" alt="Product 8">
+              <p>PUMA X SUPERMAN 85th Anniversary</p>
+              <p>Rp. 1.487.200</p>
+            </a>
+          </div>
+          <div class="grid-item">
+            <a href="">
+              <img src="img/kids-3.avif" alt="Product 9">
+              <p>PUMA X PLAYSTATION RS-X</p>
+              <p>Rp. 1.899.000</p>
+            </a>
+          </div>
+          <div class="grid-item">
+            <a href="">
+              <img src="img/kids-4.avif" alt="Product 10">
+              <p>FUTURE 7 MATCH FG/AG</p>
+              <p>Rp 1.399.000</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2024 Muhamad Ramdani. All rights reserved.</p>
+  </div>
+</body>
+
+</html>

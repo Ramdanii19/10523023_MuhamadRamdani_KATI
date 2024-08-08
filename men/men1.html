@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scoot Zeros Grey Frost - Order Page</title>
+  <style>
+    /* CSS */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #c67c4e;
+      margin-bottom: 20px;
+    }
+
+    .product-image {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .product-image img {
+      max-width: 60%;
+      border-radius: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .radio-group {
+      margin-bottom: 20px;
+      display: flex;
+    }
+
+    .radio-group label {
+      margin-right: 15px;
+    }
+
+    .checkbox-group label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    button[type="submit"] {
+      background-color: #c67c4e;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #955c3d;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>PUMA X 2K Scoot Zeros</h1>
+    <div class="product-image">
+      <img src="../img/men-1.avif" alt="MB.01 Inverse Basketball Shoes">
+    </div>
+    <form id="orderForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="4" required></textarea>
+      </div>
+
+      <div class="radio-group">
+        <label>Size:</label>
+        <label><input type="radio" name="size" value="38" required> 38</label>
+        <label><input type="radio" name="size" value="39" required> 39</label>
+        <label><input type="radio" name="size" value="40" required> 40</label>
+        <label><input type="radio" name="size" value="41" required> 41</label>
+        <label><input type="radio" name="size" value="42" required> 42</label>
+      </div>
+
+      <div class="form-group">
+        <label for="voucher">Voucher:</label>
+        <select id="voucher" name="voucher">
+          <option value="none">None</option>
+          <option value="discount10">10% Discount</option>
+          <option value="discount20">20% Discount</option>
+          <option value="discount30">30% Discount</option>
+        </select>
+      </div>
+
+      <div class="checkbox-group">
+        <label><input type="checkbox" id="protection" name="protection" value="yes"> Add Protection Plan</label>
+      </div>
+
+      <button type="submit">Place Order</button>
+    </form>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+
+</html>

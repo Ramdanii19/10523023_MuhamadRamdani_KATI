@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice</title>
+  <style>
+    /* CSS */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      text-align: center;
+      border: 2px solid #c67c4e;
+    }
+
+    h1 {
+      color: #c67c4e;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .order-info {
+      text-align: left;
+      margin-bottom: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .order-info p {
+      margin: 10px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .order-info p strong {
+      color: #c67c4e;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    .footer p {
+      margin: 5px 0;
+    }
+
+    .line {
+      border-bottom: 1px dashed #ccc;
+      margin: 10px 0;
+    }
+
+    .total {
+      font-size: 20px;
+      color: #c67c4e;
+      margin-top: 20px;
+    }
+
+    .total p {
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Invoice</h1>
+    <div class="order-info">
+      <p><strong>Order Date:</strong> <span id="orderDate"></span></p>
+      <p><strong>Name:</strong> <span id="customerName"></span></p>
+      <p><strong>Email:</strong> <span id="customerEmail"></span></p>
+      <p><strong>Phone:</strong> <span id="customerPhone"></span></p>
+      <p><strong>Address:</strong> <span id="customerAddress"></span></p>
+      <div class="line"></div>
+      <p><strong>Size:</strong> <span id="selectedSize"></span></p>
+      <p><strong>Voucher:</strong> <span id="selectedVoucher"></span></p>
+      <p><strong>Protection Plan:</strong> <span id="protectionPlan"></span></p>
+      <div class="line"></div>
+      <div class="total">
+        <p><strong>Total:</strong> <span id="totalAmount">Rp. 1.999.000</span></p>
+      </div>
+    </div>
+    <div class="footer">
+      <p>Thank you for your purchase!</p>
+      <p>Visit us again at <a href="index.html" style="color: black; text-decoration: none; font-weight: bold;">Home</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const orderData = JSON.parse(localStorage.getItem("orderData"));
+
+      if (orderData) {
+        document.getElementById("orderDate").textContent = new Date().toLocaleDateString();
+        document.getElementById("customerName").textContent = orderData.name;
+        document.getElementById("customerEmail").textContent = orderData.email;
+        document.getElementById("customerPhone").textContent = orderData.phone;
+        document.getElementById("customerAddress").textContent = orderData.address;
+        document.getElementById("selectedSize").textContent = orderData.size;
+        document.getElementById("selectedVoucher").textContent = orderData.voucher;
+        document.getElementById("protectionPlan").textContent = orderData.protection;
+      }
+    });
+  </script>
+</body>
+
+</html>
